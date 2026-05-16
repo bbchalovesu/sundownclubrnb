@@ -532,16 +532,13 @@
     <div class="first-part d-flex align-items-center">
 
         <div class="thumbnail">
-            <img src="img/artist/A2.jpg" alt="">
-        </div>
-
-        <div class="content-">
-            <h6>Albat (2024)</h6>
-            <p>Hev Abi</p>
-			<p>0:00-2:49</p>
-			<p>Hev Abi</p>
-			<p>©DTQ Entertainment</p>
-        </div>
+    <img src="img/artist/A2.jpg" alt=""
+    onclick="openSong(
+    'Albat',
+    'Released in 2024 by Hev Abi.',
+    'PASTE LYRICS HERE'
+    )">
+</div>
 
     </div>
 
@@ -1062,6 +1059,62 @@ All rights reserved | Template by
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+	<!-- Modal -->
+<div id="songModal" class="song-modal">
+    <div class="song-modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+
+        <h2 id="songTitle"></h2>
+        <p id="songDescription"></p>
+
+        <h3>Lyrics</h3>
+        <p id="songLyrics"></p>
+    </div>
+</div>
+
+<style>
+.song-modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+}
+
+.song-modal-content{
+    background:#fff;
+    width:90%;
+    max-width:600px;
+    margin:5% auto;
+    padding:25px;
+    border-radius:10px;
+    overflow-y:auto;
+    max-height:80vh;
+}
+
+.close-btn{
+    float:right;
+    font-size:30px;
+    cursor:pointer;
+}
+</style>
+
+<script>
+function openSong(title, description, lyrics){
+    document.getElementById("songTitle").innerText = title;
+    document.getElementById("songDescription").innerText = description;
+    document.getElementById("songLyrics").innerText = lyrics;
+
+    document.getElementById("songModal").style.display = "block";
+}
+
+function closeModal(){
+    document.getElementById("songModal").style.display = "none";
+}
+</script>
 </body>
 
 </html>
